@@ -66,3 +66,13 @@ python merge_lora_to_16bit.py \
   --device-map auto \
   --offload-root "/nvme12" \
   --trust-remote-code
+
+
+python merge_lora_to_16bit.py \
+  --base-model "/nvme12/common/deepseek/DeepSeek-R1-0528-bf16" \
+  --lora-dir   "/home/Competition2025/P10/shareP10/llm_project/adapters/P10U017/minqlora_out_loop_20250810_0226" \
+  --out-fp16   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250813_P10U029/bf16" \
+  --dtype16 bf16 --compute-dtype bf16 \
+  --device-map auto \
+  --offload-root "/nvme12" \
+  --trust-remote-code

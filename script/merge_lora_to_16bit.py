@@ -183,7 +183,8 @@ def merge_lora_to_16bit(
     except Exception as e:
         print("[WARN] could not remove accelerate hooks:", e)
     
-    base_device_map = getattr(base, "hf_device_map", "auto")
+    #base_device_map = getattr(base, "hf_device_map", "auto")
+    base_device_map = getattr(base, "hf_device_map", None)
 
     assert offload_folder is not None, "offload_folder must not be None"
 
@@ -201,7 +202,7 @@ def merge_lora_to_16bit(
         model = PeftModel.from_pretrained(base,
                                          lora_dir, 
                                          is_trainable=False,
-                                         device_map=base_device_map,
+                                         device_map="auto",
                                          offload_folder=offload_folder,
                                          offload_state_dict=True,
                                          torch_dtype=dtype, 

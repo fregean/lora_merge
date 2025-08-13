@@ -1,0 +1,21 @@
+norm', 'base_model.lm_head']
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 385, in <module>
+    main()
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 341, in main
+    out_fp16, metrics_fp16, dev_summary, off_rank_dir, rank, world = merge_lora_to_16bit(
+                                                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 209, in merge_lora_to_16bit
+    model = PeftModel.from_pretrained(base,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/peft_model.py", line 555, in from_pretrained
+    load_result = model.load_adapter(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/peft_model.py", line 1388, in load_adapter
+    dispatch_model(
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/accelerate/big_modeling.py", line 355, in dispatch_model
+    check_device_map(model, device_map)
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/accelerate/utils/modeling.py", line 1631, in check_device_map
+    raise ValueError(
+ValueError: The device_map provided does not give any device for the following parameters: 

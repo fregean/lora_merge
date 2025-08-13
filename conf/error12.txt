@@ -1,0 +1,30 @@
+[INFO] accelerate hooks removed -> merging on current devices (CPU/offload).
+[INFO][rank 0] device_map summary: {0: 6, 1: 3, 2: 3, 3: 3, 4: 3, 5: 3, 6: 3, 7: 3, 'cpu': 37}
+[INFO][rank 0] Attaching LoRA adapter from: /home/Competition2025/P10/shareP10/llm_project/adapters/P10U017/minqlora_out_loop_20250810_0226
+Some parameters are on the meta device because they were offloaded to the disk and cpu.
+[INFO][rank 0] Merging LoRA -> base (merge_and_unload)
+Traceback (most recent call last):
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 385, in <module>
+    main()
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 341, in main
+    out_fp16, metrics_fp16, dev_summary, off_rank_dir, rank, world = merge_lora_to_16bit(
+                                                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 221, in merge_lora_to_16bit
+    model = model.merge_and_unload()
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/tuners/lora/model.py", line 926, in merge_and_unload
+    return self._unload_and_optionally_merge(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/tuners/lora/model.py", line 534, in _unload_and_optionally_merge
+    with onload_layer(target):
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 70, in onload_layer
+    module._hf_hook.pre_forward(module)
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/accelerate/hooks.py", line 360, in pre_forward
+    set_module_tensor_to_device(
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/accelerate/utils/modeling.py", line 343, in set_module_tensor_to_device
+    new_value = value.to(device, non_blocking=non_blocking)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 28.00 MiB. GPU 0 has a total capacity of 79.44 GiB of which 14.62 MiB is free. Including non-PyTorch memory, this process has 79.41 GiB memory in use. Of the allocated memory 78.80 GiB is allocated by PyTorch, and 9.93 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
