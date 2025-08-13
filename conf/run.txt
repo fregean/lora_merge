@@ -1,0 +1,57 @@
+python merge_lora_to_16bit.py \
+  --base-model "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-bf16" \
+  --lora-dir   "/home/Competition2025/P10/shareP10/llm_project/adapters/P10U017/minqlora_out_loop_20250810_0226" \
+  --out-fp16   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/bf16" \
+  --out-4bit   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/4bit_nf4" \
+  --dtype16 bf16 \
+  --compute-dtype bf16 \
+  --trust-remote-code \
+  --device-map auto \
+  --offload-root "/nvme12"
+
+
+python merge_lora_to_16bit.py \
+  --base-model "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-bf16" \
+  --lora-dir   "/home/Competition2025/P10/shareP10/llm_project/adapters/P10U017/minqlora_out_loop_20250810_0226" \
+  --out-fp16   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/bf16" \
+  --out-4bit   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/4bit_nf4" \
+  --dtype16 bf16 --compute-dtype bf16 \
+  --device-map auto \
+  --max-memory "0:70GiB,1:74GiB,2:74GiB,3:74GiB,4:74GiB,5:74GiB,6:74GiB,7:74GiB,cpu:300GiB,disk:7000GiB" \
+  --offload-root "/nvme12" \
+  --trust-remote-code
+
+
+python merge_lora_to_16bit.py \
+  --base-model "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-bf16" \
+  --lora-dir   "/home/Competition2025/P10/shareP10/llm_project/adapters/P10U017/minqlora_out_loop_20250810_0226" \
+  --out-fp16   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/bf16" \
+  --out-4bit   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/4bit_nf4" \
+  --dtype16 bf16 --compute-dtype bf16 \
+  --device-map auto \
+  --max-memory "0:70GiB,1:74GiB,2:74GiB,3:74GiB,4:74GiB,5:74GiB,6:74GiB,7:74GiB,cpu:220GiB" \
+  --offload-root "/nvme12" \
+  --trust-remote-code
+
+
+python merge_lora_to_16bit.py \
+  --base-model "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-bf16" \
+  --lora-dir   "/home/Competition2025/P10/shareP10/llm_project/adapters/P10U017/minqlora_out_loop_20250810_0226" \
+  --out-fp16   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/bf16" \
+  --out-4bit   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/4bit_nf4" \
+  --dtype16 bf16 --compute-dtype bf16 \
+  --device-map auto \
+  --max-memory "0:70GiB,1:74GiB,2:74GiB,3:74GiB,4:74GiB,5:74GiB,6:74GiB,7:74GiB,cpu:220GiB" \
+  --offload-root "/nvme12" \
+  --trust-remote-code
+
+
+python merge_lora_to_16bit.py \
+  --base-model "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-bf16" \
+  --lora-dir   "/home/Competition2025/P10/shareP10/llm_project/adapters/P10U017/minqlora_out_loop_20250810_0226" \
+  --out-fp16   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/bf16" \
+  --out-4bit   "/home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-merged/20250812_001/4bit_nf4" \
+  --dtype16 bf16 --compute-dtype bf16 \
+  --device-map auto \
+  --offload-root "/nvme12" \
+  --trust-remote-code
