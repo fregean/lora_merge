@@ -1,6 +1,13 @@
 cat > merge_lora_to_16bit.py << 'EOF'
 #!/usr/bin/env python3
-import argparse, os, sys, time, json, platform, socket, getpass, datetime
+import os
+
+os.environ.setdefault("SAFETENSORS_FAST_LOAD", "0")  # ← mmap を使わない読み込みに切替
+os.environ.setdefault("TORCHDYNAMO_DISABLE", "1")   # 念のためコンパイル系も停止
+os.environ.setdefault("TORCHINDUCTOR_DISABLE", "1")
+os.environ.setdefault("HF_USE_FLEX_ATTENTION", "0")
+
+import argparse, sys, time, json, platform, socket, getpass, datetime
 from typing import Dict, Optional
 
 import torch
@@ -176,6 +183,10 @@ def merge_lora_to_16bit(
     except Exception as e:
         print("[WARN] could not remove accelerate hooks:", e)
     
+    base_device_map = getattr(base, "hf_device_map", "auto")
+
+    assert offload_folder is not None, "offload_folder must not be None"
+
     metrics["t_load_base_sec"] = round(time.monotonic() - t0, 3)
     dev_summary = summarize_device_map(base)
     if dev_summary:
@@ -187,7 +198,14 @@ def merge_lora_to_16bit(
     if is_rank0:
         print(f"[INFO][rank 0] Attaching LoRA adapter from: {lora_dir}")
         t_attach = time.monotonic()
-        model = PeftModel.from_pretrained(base, lora_dir, is_trainable=False)
+        model = PeftModel.from_pretrained(base,
+                                         lora_dir, 
+                                         is_trainable=False,
+                                         device_map=base_device_map,
+                                         offload_folder=offload_folder,
+                                         offload_state_dict=True,
+                                         torch_dtype=dtype, 
+                                         )
         metrics["t_attach_lora_sec"] = round(time.monotonic() - t_attach, 3)
 
         print("[INFO][rank 0] Merging LoRA -> base (merge_and_unload)")
