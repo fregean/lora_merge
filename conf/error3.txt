@@ -1,0 +1,26 @@
+[INFO][rank 0/1] Loading base model: /home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-bf16
+Traceback (most recent call last):
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 336, in <module>
+    main()
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 292, in main
+    out_fp16, metrics_fp16, dev_summary, off_rank_dir, rank, world = merge_lora_to_16bit(
+                                                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 138, in merge_lora_to_16bit
+    base = AutoModelForCausalLM.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 593, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 316, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5061, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5445, in _load_pretrained_model
+    disk_only_shard_files = get_disk_only_shard_files(device_map, weight_map)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 6127, in get_disk_only_shard_files
+    files_content[filename].append(device_map[weight_name])
+                                   ~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: ''

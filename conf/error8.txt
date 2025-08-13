@@ -1,0 +1,30 @@
+[INFO][rank 0/1] Loading base model: /home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-bf16
+Loading checkpoint shards:  17%|████████▊                                          | 28/163 [01:50<08:53,  3.95s/it]
+Traceback (most recent call last):
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 376, in <module>
+    main()
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 332, in main
+    out_fp16, metrics_fp16, dev_summary, off_rank_dir, rank, world = merge_lora_to_16bit(
+                                                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 168, in merge_lora_to_16bit
+    base = AutoModelForCausalLM.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 593, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 316, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5061, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5524, in _load_pretrained_model
+    _error_msgs, disk_offload_index, cpu_offload_index = load_shard_file(args)
+                                                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 961, in load_shard_file
+    state_dict = load_state_dict(
+                 ^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 537, in load_state_dict
+    with safe_open(checkpoint_file, framework="pt") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: unable to mmap 8598786520 bytes from file </home/Competition2025/P10/shareP10/llm_project/models/deepseek/DeepSeek-R1-0528-bf16/model-00029-of-000163.safetensors>: Cannot allocate memory (12)

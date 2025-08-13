@@ -1,0 +1,12 @@
+srun --partition P10 \
+     --nodes=1 \
+     --nodelist=osk-gpu78 \
+     --gpus-per-node=8 \
+     --time=05:00:00 \
+     --job-name="merge" \
+     --exclusive \
+     --pty bash -i
+
+
+chmod +x cleanup_nvme_stale.sh
+./cleanup_nvme_stale.sh

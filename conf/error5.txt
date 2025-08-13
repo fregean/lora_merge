@@ -1,0 +1,76 @@
+
+Traceback (most recent call last):
+  File "/home/Competition2025/P10/P10U029/merge_lora_to_16bit.py", line 10, in <module>
+    from peft import PeftModel, __version__ as peft_ver
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/__init__.py", line 17, in <module>
+    from .auto import (
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/auto.py", line 31, in <module>
+    from .config import PeftConfig
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/config.py", line 24, in <module>
+    from .utils import CONFIG_NAME, PeftType, TaskType
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/utils/__init__.py", line 17, in <module>
+    from .other import (
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/peft/utils/other.py", line 36, in <module>
+    from transformers import PreTrainedModel
+  File "<frozen importlib._bootstrap>", line 1229, in _handle_fromlist
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 2292, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 2322, in _get_module
+    raise e
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 2320, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/modeling_utils.py", line 63, in <module>
+    from .integrations.flex_attention import flex_attention_forward
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/integrations/flex_attention.py", line 46, in <module>
+    class WrappedFlexAttention:
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/transformers/integrations/flex_attention.py", line 61, in WrappedFlexAttention
+    @torch.compiler.disable(recursive=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/compiler/__init__.py", line 226, in disable
+    import torch._dynamo
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_dynamo/__init__.py", line 39, in <module>
+    from .polyfills import loader as _  # usort: skip # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_dynamo/polyfills/loader.py", line 22, in <module>
+    POLYFILLED_MODULES: Tuple["ModuleType", ...] = tuple(
+                                                   ^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_dynamo/polyfills/loader.py", line 23, in <genexpr>
+    importlib.import_module(f".{submodule}", package=polyfills.__name__)
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_dynamo/polyfills/builtins.py", line 23, in <module>
+    @substitute_in_graph(builtins.all, can_constant_fold_through=True)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_dynamo/decorators.py", line 312, in wrapper
+    rule_map: Dict[Any, Type[VariableTracker]] = get_torch_obj_rule_map()
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_dynamo/trace_rules.py", line 2860, in get_torch_obj_rule_map
+    obj = load_object(k)
+          ^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_dynamo/trace_rules.py", line 2891, in load_object
+    val = _load_obj_from_str(x[0])
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_dynamo/trace_rules.py", line 2875, in _load_obj_from_str
+    return getattr(importlib.import_module(module), obj_name)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_higher_order_ops/map.py", line 6, in <module>
+    from torch._functorch.aot_autograd import AOTConfig, create_joint
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_functorch/aot_autograd.py", line 32, in <module>
+    from ._aot_autograd.autograd_cache import (  # noqa: F401
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py", line 19, in <module>
+    from torch._inductor.codecache import (
+  File "/home/Competition2025/P10/P10U029/.conda/envs/conda_env_lora_merge/lib/python3.11/site-packages/torch/_inductor/codecache.py", line 58, in <module>
+    from torch._inductor.codegen.cuda import cuda_env
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1138, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1070, in _find_spec
+MemoryError
